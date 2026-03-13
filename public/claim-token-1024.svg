@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="ringGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6C2BD9"/>
+      <stop offset="35%" stop-color="#8B5CF6"/>
+      <stop offset="65%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <radialGradient id="innerGlow" cx="0.45" cy="0.45" r="0.4">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#7C3AED" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="b2"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="60" result="b3"/>
+      <feMerge>
+        <feMergeNode in="b3"/>
+        <feMergeNode in="b2"/>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="flare" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="24" result="b2"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="b3"/>
+      <feMerge>
+        <feMergeNode in="b3"/>
+        <feMergeNode in="b3"/>
+        <feMergeNode in="b2"/>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <circle cx="512" cy="512" r="512" fill="#06060C"/>
+  <!-- Outer ring -->
+  <circle cx="512" cy="512" r="480" fill="none" stroke="url(#ringGrad)" stroke-width="16" filter="url(#glow)"/>
+  <!-- Inner fill -->
+  <circle cx="512" cy="512" r="440" fill="#0A0A16"/>
+  <!-- Inner glow -->
+  <circle cx="512" cy="512" r="440" fill="url(#innerGlow)"/>
+  <!-- Decorative rings -->
+  <circle cx="512" cy="512" r="400" fill="none" stroke="url(#ringGrad)" stroke-width="4" opacity="0.2"/>
+  <circle cx="512" cy="512" r="375" fill="none" stroke="url(#ringGrad)" stroke-width="1.5" opacity="0.08"/>
+  <circle cx="512" cy="512" r="355" fill="none" stroke="url(#ringGrad)" stroke-width="0.8" opacity="0.04"/>
+  <!-- C Gem (scaled 5.2x from 100-space, centered) -->
+  <!-- offset_x=512-42*5.2=293.6, offset_y=512-50*5.2=252 -->
+  <g filter="url(#glow)">
+    <!-- Upper facet -->
+    <polygon points="700,330 450,283 325,512 418,512 481,377 606,418" fill="#A78BFA" opacity="0.9"/>
+    <!-- Lower facet -->
+    <polygon points="325,512 450,741 700,694 606,606 481,647 418,512" fill="#6C2BD9" opacity="0.85"/>
+    <!-- Inner face -->
+    <polygon points="606,418 481,377 418,512 481,647 606,606" fill="#8B5CF6" opacity="0.75"/>
+  </g>
+  <!-- Inner white highlights -->
+  <line x1="700" y1="330" x2="450" y2="283" stroke="#FFFFFF" stroke-width="2.5" opacity="0.10"/>
+  <line x1="700" y1="330" x2="606" y2="418" stroke="#FFFFFF" stroke-width="2" opacity="0.08"/>
+  <line x1="450" y1="283" x2="325" y2="512" stroke="#FFFFFF" stroke-width="1.5" opacity="0.05"/>
+  <!-- Apex flare -->
+  <g filter="url(#flare)">
+    <circle cx="700" cy="330" r="12" fill="#FFFFFF" opacity="0.55"/>
+    <circle cx="700" cy="330" r="28" fill="#C4B5FD" opacity="0.15"/>
+    <circle cx="700" cy="330" r="56" fill="#8B5CF6" opacity="0.06"/>
+    <circle cx="700" cy="330" r="100" fill="#7C3AED" opacity="0.02"/>
+  </g>
+  <!-- Lens flare -->
+  <line x1="650" y1="330" x2="750" y2="330" stroke="#FFFFFF" stroke-width="1.5" opacity="0.06" filter="url(#softGlow)"/>
+  <!-- Shimmer -->
+  <ellipse cx="460" cy="420" rx="50" ry="16" fill="#FFFFFF" opacity="0.02" transform="rotate(-18, 460, 420)"/>
+  <!-- Gold value particles -->
+  <circle cx="480" cy="480" r="3" fill="#FFD700" opacity="0.15" filter="url(#softGlow)"/>
+  <circle cx="550" cy="540" r="2.5" fill="#FFD700" opacity="0.12" filter="url(#softGlow)"/>
+  <circle cx="440" cy="580" r="2" fill="#FFE44D" opacity="0.08" filter="url(#softGlow)"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100">
+  <!-- Upper facet — catches light -->
+  <polygon points="78,15 30,6 6,50 24,50 36,24 60,32" fill="#A78BFA" opacity="0.9"/>
+  <!-- Lower facet — shadow -->
+  <polygon points="6,50 30,94 78,85 60,68 36,76 24,50" fill="#6C2BD9" opacity="0.85"/>
+  <!-- Inner concave face -->
+  <polygon points="60,32 36,24 24,50 36,76 60,68" fill="#8B5CF6" opacity="0.75"/>
+</svg>

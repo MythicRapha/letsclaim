@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="80" viewBox="0 0 520 80">
+  <defs>
+    <linearGradient id="claimGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="55" font-family="'Sora', 'Inter', sans-serif" font-weight="300" font-size="48" fill="#F5F5F5" letter-spacing="0">lets</text>
+  <text x="115" y="55" font-family="'Sora', 'Inter', sans-serif" font-weight="800" font-size="48" fill="url(#claimGrad)" letter-spacing="1">claim</text>
+  <text x="325" y="55" font-family="'Sora', 'Inter', sans-serif" font-weight="300" font-size="48" fill="#8B5CF6" opacity="0.45" letter-spacing="0">.fun</text>
+</svg>

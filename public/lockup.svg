@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="140" viewBox="0 0 740 140">
+  <defs>
+    <linearGradient id="claimGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b2"/>
+      <feMerge>
+        <feMergeNode in="b2"/>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- C Gem Mark (scaled from 100-space to ~110px, centered vertically) -->
+  <g transform="translate(12,10) scale(1.2)" filter="url(#glow)">
+    <!-- Upper facet -->
+    <polygon points="78,15 30,6 6,50 24,50 36,24 60,32" fill="#A78BFA" opacity="0.9"/>
+    <!-- Lower facet -->
+    <polygon points="6,50 30,94 78,85 60,68 36,76 24,50" fill="#6C2BD9" opacity="0.85"/>
+    <!-- Inner face -->
+    <polygon points="60,32 36,24 24,50 36,76 60,68" fill="#8B5CF6" opacity="0.75"/>
+  </g>
+  <!-- Divider -->
+  <line x1="140" y1="22" x2="140" y2="118" stroke="#8B5CF6" stroke-width="1" opacity="0.12"/>
+  <!-- Wordmark -->
+  <text x="162" y="82" font-family="'Sora', 'Inter', sans-serif" font-weight="300" font-size="44" fill="#F5F5F5" letter-spacing="0">lets</text>
+  <text x="272" y="82" font-family="'Sora', 'Inter', sans-serif" font-weight="800" font-size="44" fill="url(#claimGrad)" letter-spacing="1">claim</text>
+  <text x="462" y="82" font-family="'Sora', 'Inter', sans-serif" font-weight="300" font-size="44" fill="#8B5CF6" opacity="0.4">.fun</text>
+  <!-- Tagline -->
+  <text x="162" y="112" font-family="'JetBrains Mono', 'SF Mono', monospace" font-weight="500" font-size="11" fill="#A78BFA" opacity="0.4" letter-spacing="4">FOUND MONEY, ONE CLICK</text>
+</svg>

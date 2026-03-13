@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================
+   LETSCLAIM BRAND SYSTEM — Solana Purple / Green
+   Fonts: Sora (display), Inter (body), JetBrains Mono (code)
+   ================================================================ */
+
+:root {
+  /* Primary: Solana Purple */
+  --claim-purple: #9945FF;
+  --claim-purple-bright: #B06FFF;
+  --claim-purple-deep: #7B2FCC;
+  --claim-purple-glow: rgba(153, 69, 255, 0.25);
+  --claim-purple-subtle: rgba(153, 69, 255, 0.06);
+
+  /* Accent: Solana Green */
+  --claim-green: #14F195;
+  --claim-green-bright: #45FFB0;
+  --claim-green-deep: #0CC077;
+
+  /* Backgrounds */
+  --bg-0: #000000;
+  --bg-1: #08080C;
+  --bg-2: #0F0F15;
+  --bg-3: #16161F;
+  --bg-4: #1E1E2A;
+
+  /* Text */
+  --text-100: #FFFFFF;
+  --text-200: #E0E0E8;
+  --text-300: #A0A0B0;
+  --text-400: #686878;
+  --text-500: #404050;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Semantic */
+  --success: #34D399;
+  --warning: #FBBF24;
+  --error: #F87171;
+  --info: #60A5FA;
+
+  /* Typography — next/font injects --font-sora, --font-inter, --font-jetbrains-mono */
+  --font-display: var(--font-sora), 'Sora', sans-serif;
+  --font-body: var(--font-inter), 'Inter', -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-4) var(--bg-0);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--bg-4);
+}
+
+::selection {
+  background: var(--claim-purple);
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-0);
+  color: var(--text-300);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle grain texture on body */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.012;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ================================================================
+   SOLANA GRADIENT UTILITIES
+   ================================================================ */
+
+.solana-gradient {
+  background: linear-gradient(135deg, #9945FF, #14F195);
+}
+
+.solana-gradient-text {
+  background: linear-gradient(135deg, #9945FF, #14F195);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================================
+   BRAND TEXT UTILITIES
+   ================================================================ */
+
+.gradient-text {
+  color: var(--claim-purple);
+}
+
+.text-claim-glow {
+  color: var(--claim-purple);
+  text-shadow: 0 0 24px rgba(153, 69, 255, 0.3);
+}
+
+/* ================================================================
+   GLOW EFFECTS — Solana Purple
+   ================================================================ */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(153, 69, 255, 0.15);
+}
+
+.glow-purple-hover:hover {
+  box-shadow: 0 0 30px rgba(153, 69, 255, 0.25);
+}
+
+/* ================================================================
+   GLASS CARD
+   ================================================================ */
+.glass-card {
+  background: rgba(8, 8, 12, 0.8);
+  border: 1px solid var(--border-subtle);
+}
+
+@supports (backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px)) {
+  .glass-card {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+}
+
+@supports not ((backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px))) {
+  .glass-card {
+    background: rgba(8, 8, 12, 0.95);
+  }
+}
+
+/* ================================================================
+   LIQUID GLASS — premium glassmorphism for main tool card
+   ================================================================ */
+.liquid-glass {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(8, 8, 12, 0.7) 0%,
+    rgba(15, 15, 21, 0.5) 50%,
+    rgba(8, 8, 12, 0.7) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(153, 69, 255, 0.04);
+  overflow: hidden;
+}
+
+@supports (backdrop-filter: blur(40px)) or (-webkit-backdrop-filter: blur(40px)) {
+  .liquid-glass {
+    backdrop-filter: blur(40px) saturate(1.4);
+    -webkit-backdrop-filter: blur(40px) saturate(1.4);
+  }
+}
+
+/* Top highlight edge */
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(153, 69, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(20, 241, 149, 0.15) 70%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Subtle inner light refraction */
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================================================================
+   HERO PARTICLES — Solana Purple
+   ================================================================ */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-particles::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.08;
+  background: var(--claim-purple);
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float-particles 12s ease-in-out infinite;
+}
+
+@keyframes float-particles {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.15); }
+}
+
+/* ================================================================
+   GRID OVERLAY — Solana Purple
+   ================================================================ */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(153, 69, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(153, 69, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.05); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-count {
+  animation: count-up 0.6s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ================================================================
+   PULSE RING — Solana Purple border on hover
+   ================================================================ */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--claim-purple);
+  opacity: 0;
+  transition: opacity var(--duration-normal) ease;
+}
+
+.pulse-ring:hover::after {
+  opacity: 0.5;
+}
+
+/* ================================================================
+   SMOOTH TRANSITIONS
+   ================================================================ */
+@keyframes burnWave {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.transition-smooth {
+  transition: all 0.25s var(--ease-out);
+}
